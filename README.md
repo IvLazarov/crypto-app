@@ -1,3 +1,10 @@
+# Simple Crypto App
+
+Thiis is a simple crypto app project. It shows trending coins, enables users to 
+search coins and view them in detail. 
+
+You can see the app on: https://simplecryptoapp.netlify.app/ 
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
