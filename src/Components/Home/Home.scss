@@ -1,0 +1,242 @@
+@use '../../SCSS/variables' as *;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    scroll-behavior: smooth;
+    font-family: 'Fira Sans';
+}
+
+/* Trending Coins CSSS */
+
+.home {
+    width: 100%;
+    margin-top: 5%;
+}
+
+.trending-coins {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+
+    a {
+        text-decoration: none;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 5%;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Coins Table CSS */
+.coin-table {
+    border-left: 2px solid $lightgrey;
+    border-right: 2px solid $lightgrey;
+    border-bottom: 2px solid $lightgrey;
+    width: fit-content;
+    margin-bottom: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.coin-table-dark {
+    border-left: 2px solid $darkgrey;
+    border-right: 2px solid $darkgrey;
+    border-bottom: 2px solid $darkgrey;
+    transition: 0.2s;
+}
+
+.loading {
+    width: 900px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-table {
+    border-top: 2px solid $lightgrey;
+    border-left: 2px solid $lightgrey;
+    border-right: 2px solid $lightgrey;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 50px;
+    width: 900px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 50px;
+    transition: 0.2s;
+
+    section {
+        width: 150px;
+        text-align: center;
+        font-weight: 700;
+        color: $darkgrey;
+    }
+
+    main {
+        width: 150px;
+        margin-left: 118px;
+        text-align: center;
+        font-weight: 700;
+        color: $darkgrey;
+    }
+}
+
+.info-table-dark {
+    border-top: 2px solid $darkgrey;
+    border-left: 2px solid $darkgrey;
+    border-right: 2px solid $darkgrey;
+    transition: 0.2s;
+}
+
+/* Coin Description CSS */
+
+.coin-description {
+    width: 900px;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    transition: 0.2s;
+
+    &:hover {
+        background-color: $lightgrey;
+        transition: 0.2s;
+    }
+
+    p {
+        width: 150px;
+        height: fit-content;
+    }
+
+    img {
+        width: 40px;
+        height: 40px;
+    }
+
+    section {
+        width: 150px;
+        height: 60px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+    }
+}
+
+.coin-description-dark:hover {
+    background-color: $darkgrey;
+}
+
+
+/* 24h % indicator style */
+
+.coin-description section div {
+    border-radius: 5px;
+    color: $white;
+    width: 70px;
+    padding: 3px;
+}
+
+.negative-index {
+    border: 1px solid $red;
+    background-color: $red;
+}
+
+.positive-index {
+    border: 1px solid $green;
+    background-color: $green;
+}
+
+/* Media Queries */
+
+@media(max-width:1000px) {
+    .home {
+        margin-top: 10%;
+    }
+}
+
+@media(max-width:930px) {
+
+    .info-table,
+    .coin-table,
+    .coin-description {
+        width: 700px;
+    }
+
+    .info-table section,
+    .info-table main {
+        width: 100px;
+    }
+}
+
+@media(max-width: 730px) {
+
+    .info-table,
+    .coin-table,
+    .coin-description {
+        width: 500px;
+    }
+
+    .info-table section,
+    .info-table main {
+        display: none;
+    }
+
+    .coin-description section {
+        width: 20%;
+    }
+
+    .home {
+        margin-top: 13%;
+    }
+}
+
+
+
+@media(max-width: 550px) {
+
+    .info-table,
+    .coin-table,
+    .coin-description {
+        width: 350px;
+    }
+
+    .coin-description section {
+        width: 30%;
+    }
+
+    .negative-index,
+    .positive-index,
+    .coin-description .cap {
+        display: none;
+    }
+
+    .trending-coins h2 {
+        margin-top: 35%;
+    }
+}
+
+@media(max-width:410px) {
+    .trending-coins h2 {
+        margin-top: 50%;
+    }
+}
