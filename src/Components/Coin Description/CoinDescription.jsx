@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { TailSpin } from "react-loader-spinner";
 import CoinStats from "./CoinStats";
 import "../Coin Description/CoinDescription.scss";
+import parse from 'html-react-parser';
 
 const CoinDescription = ({ mode }) => {
   let { id } = useParams();
@@ -16,8 +17,8 @@ const CoinDescription = ({ mode }) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setLoading(true);
+        console.log(data)
         setCoin(data);
         setLoading(false);
       });
@@ -34,13 +35,13 @@ const CoinDescription = ({ mode }) => {
               <img src={coin?.image?.large} alt={coin.name} />
               <h1>{coin.name ? coin.name : "Coin not found"}</h1>
             </div>
-            <CoinStats mode={mode} />
+            <CoinStats />
             <div className="coin-text">
-              {readMore
-                ? coin?.description?.en
+              {readMore 
+                ? parse(coin?.description?.en)
                 : `${coin?.description?.en.substring(0, 300)}...`}
 
-              {coin?.description?.en.length >= 10 && (
+              {coin?.description?.en.length >= 5 && (
                 <button
                   className={`read-btn ${mode && "read-btn-dark"}`}
                   onClick={() => setReadMore(!readMore)}
