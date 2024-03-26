@@ -18,14 +18,13 @@ const CoinDescription = ({ mode }) => {
       .then((response) => response.json())
       .then((data) => {
         setLoading(true);
-        console.log(data)
         setCoin(data);
         setLoading(false);
       });
   }, [id]);
 
   return (
-    <div id={`coin-description ${mode && "dark-mode"}`}>
+    <div id="coin-description"  >
       <div className={mode && "dark-mode"}>
         {Object.keys(coin).length === 0 ? (
           <TailSpin />
