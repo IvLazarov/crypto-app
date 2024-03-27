@@ -61,13 +61,9 @@ const CoinStats = () => {
     responsive: true,
   };
 
-  console.log(chartData);
-
   return (
     <div className="chart">
-      <div>
-        <Line data={data} options={options} />
-      </div>
+      <Line data={data} options={options} />
     </div>
   );
 };

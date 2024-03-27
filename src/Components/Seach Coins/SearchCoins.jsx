@@ -39,7 +39,6 @@ const SearchCoins = ({ mode }) => {
 
   }
 
-  console.log(coins)
 
   return (
     <div className={`search-coins ${mode && "dark-mode"}`}>

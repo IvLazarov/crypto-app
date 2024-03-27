@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { TailSpin } from "react-loader-spinner";
 import CoinStats from "./CoinStats";
 import "../Coin Description/CoinDescription.scss";
-import parse from 'html-react-parser';
+import parse from "html-react-parser";
 
 const CoinDescription = ({ mode }) => {
   let { id } = useParams();
@@ -24,8 +24,8 @@ const CoinDescription = ({ mode }) => {
   }, [id]);
 
   return (
-    <div id="coin-description"  >
-      <div className={mode && "dark-mode"}>
+    <div id="coin-description">
+      <div className={`${mode === false ? "light-mode" : "dark-mode"}`}>
         {Object.keys(coin).length === 0 ? (
           <TailSpin />
         ) : (
@@ -36,10 +36,11 @@ const CoinDescription = ({ mode }) => {
             </div>
             <CoinStats />
             <div className="coin-text">
-              {readMore 
-                ? parse(coin?.description?.en)
-                : `${coin?.description?.en.substring(0, 300)}...`}
-
+              <p>
+                {readMore
+                  ? parse(coin?.description?.en)
+                  : `${coin?.description?.en.substring(0, 300)}...`}
+              </p>
               {coin?.description?.en.length >= 5 && (
                 <button
                   className={`read-btn ${mode && "read-btn-dark"}`}
