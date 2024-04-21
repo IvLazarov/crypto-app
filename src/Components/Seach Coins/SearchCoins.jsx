@@ -8,7 +8,7 @@ const SearchCoins = ({ mode }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError]=useState(null)
+  const [searchTerm, setSearchTerm] = useState(false);
 
   function handleInput(event) {
     setSearchQuery(event.target.value);
@@ -17,28 +17,25 @@ const SearchCoins = ({ mode }) => {
   function handleKey(event) {
     if (event.key === "Enter") {
       setLoading(true);
-        searchCoins();
-        
+      searchCoins();
+      if (searchQuery.length >= 0) {
+        setSearchTerm(true);
+      }
     }
   }
 
-
   function searchCoins() {
-      try{
-        fetch(`https://api.coingecko.com/api/v3/search?query=${searchQuery}`)
+    try {
+      fetch(`https://api.coingecko.com/api/v3/search?query=${searchQuery}`)
         .then((response) => response.json())
         .then((data) => {
           setCoins(data.coins);
           setLoading(false);
         });
-      }
-      catch(error){
-        console.log(error.message)
-        setError(error.message)
-      }
-
+    } catch (error) {
+      console.log(error.message);
+    }
   }
-
 
   return (
     <div className={`search-coins ${mode && "dark-mode"}`}>
@@ -57,6 +54,10 @@ const SearchCoins = ({ mode }) => {
       </div>
 
       <div className="coins">
+        {searchTerm && coins.length === 0 && !loading && (
+          <h2>Coin not found!</h2>
+        )}
+
         {loading ? (
           <TailSpin />
         ) : (
