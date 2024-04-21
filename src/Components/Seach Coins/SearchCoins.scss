@@ -70,6 +70,10 @@
   align-items: center;
   gap: 3px 3px;
 
+  h2{
+    text-align: center;
+  }
+
   a {
     border: 1px solid $lightgrey;
     border-radius: 10px;
