@@ -18,7 +18,7 @@ const SearchCoins = ({ mode }) => {
     if (event.key === "Enter") {
       setLoading(true);
       searchCoins();
-      if (searchQuery.length >= 0) {
+      if (searchQuery.length > 0) {
         setSearchTerm(true);
       }
     }
